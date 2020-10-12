@@ -33,4 +33,12 @@ debug.set_debug_status(config)
 # This will fetch initial data from MLB
 data = Data(config)
 
-MainRenderer(matrix, data).render()
+
+while True:
+    if datetime.now().strftime('%H') >= 07:    #Loop runs after 7AM.
+        MainRenderer(matrix, data).render()
+    elif datetime.now().strftime('%H') <= 19:    #Loop before 7PM.
+        MainRenderer(matrix, data).render()
+    else:
+        break
+#MainRenderer(matrix, data).render()
